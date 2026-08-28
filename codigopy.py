@@ -7,7 +7,7 @@ st.set_page_config(page_title="Consulta de Notas", page_icon="🧬")
 @st.cache_data
 def carregar_dados():
     # Lê a planilha pulando as 2 primeiras linhas vazias/títulos para pegar o cabeçalho correto
-    df = pd.read_excel("Cálculo de Notas - 9ºANO - 2ºTri.xlsx", sheet_name=0, header=2)
+    df = pd.read_excel("Cálculo de Notas - Atividades - 2ºTri.xlsx", sheet_name=0, header=2)
     
     # Limpa espaços em branco dos nomes das colunas
     df.columns = [str(c).strip() for c in df.columns]
