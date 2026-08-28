@@ -26,10 +26,10 @@ def carregar_dados():
 df = carregar_dados()
 
 st.title("🧬 Consulta de Notas - Biologia")
-st.write("Digite seu RA para visualizar sua nota (2º Trimestre).")
+st.write("Digite seu RA para visualizar sua nota de atividades.")
 
 # Campo de senha para o aluno digitar o RA
-ra_aluno = st.text_input("Digite o seu RA sem o zero do início:", type="password")
+ra_aluno = st.text_input("Digite o seu RA:", type="password")
 
 if st.button("Ver Nota"):
     if ra_aluno:
@@ -48,7 +48,8 @@ if st.button("Ver Nota"):
             nota_formatada = f"{float(nota):.1f}" if pd.notna(nota) else "Sem nota"
             
             st.success(f"Aluno(a): {nome} - Turma: {turma}")
-            st.metric(label="Sua Nota Final", value=nota_formatada)
+            # AQUI ESTÁ A LINHA ALTERADA:
+            st.metric(label="Sua nota de atividades", value=nota_formatada)
         else:
             st.error("RA não encontrado. Verifique se o número foi digitado corretamente.")
     else:
